@@ -2,7 +2,9 @@ import React from 'react'
 
 const DefaultPagesTemplate = () => {
   return (
-    <div>DefaultPagesTemplate</div>
+    <>
+      <div>DefaultPagesTemplate</div>
+    </>
   )
 }
 
