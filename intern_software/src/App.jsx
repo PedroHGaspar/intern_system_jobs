@@ -1,12 +1,18 @@
-import DefaultPagesTemplate from "./Pages/DefaultPagesTemplate"
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import DefaultPagesTemplate from './Components/DefaultPagesTemplate';
 
-
-function App() {
+const App = () => {
     return (
-        <div>
-            < DefaultPagesTemplate />
-        </div>
-    )
-}
+        <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<DefaultPagesTemplate />} />
+        </Routes>
+    );
+};
 
-export default App
+export default App;
