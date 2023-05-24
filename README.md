@@ -7,10 +7,10 @@ In this repository, we will be developing a software that controls the job/clien
 
 ## HOW TO START
 
-• npm install (on the intern_software folder)
-• npm install react-router-dom (on the intern_software folder)
-• npm install firebase (on the intern_software folder)
-• npm install react-router-dom firebase (on the intern_software folder)
-• npm install -g firebase-tools (on the intern_software folder)
-• npm install react-router-dom@latest (on the intern_software folder)
-• npm start
+• npm install (on the intern_software folder) <br />
+• npm install react-router-dom (on the intern_software folder) <br />
+• npm install firebase (on the intern_software folder) <br />
+• npm install react-router-dom firebase (on the intern_software folder) <br />
+• npm install -g firebase-tools (on the intern_software folder) <br />
+• npm install react-router-dom@latest (on the intern_software folder) <br />
+• npm start <br />
