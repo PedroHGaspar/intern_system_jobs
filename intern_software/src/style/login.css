@@ -1,62 +1,102 @@
 * {
-    color-scheme: light;
-  }
-  
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    
-  }
-  
-  .logo {
-    width: 370px;
-    
-  }
-  
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 99px;
-    background-color: #e6ecf0;
-    font-size: 14px;
-  }
-  
-  button {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 99px;
-    background-color: #1da1f2;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0c8ed9;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    font-weight: bold;
-  }
-  
+  color-scheme: light;
+}
+
+.light-mode {
+  background-color: #fff;
+}
+
+.dark-mode {
+  background-color: #222;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+} 
+.logo {
+  width: 370px;
+}
+
+.dark-mode-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+}
+.dark-mode-button:hover {
+  color: #fff;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.dark-mode h2 {
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 99px;
+  background-color: #e6ecf0;
+  font-size: 14px;
+  color: #000;
+}
+
+.dark-mode input {
+  background-color: #333;
+  color: #fff;
+}
+
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 99px;
+  background-color: #1da1f2;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dark-mode button {
+  background-color: #333;
+}
+
+button:hover {
+  background-color: #0c8ed9;
+}
+
+.dark-mode button:hover {
+  background-color: #555;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: bold;
+}
