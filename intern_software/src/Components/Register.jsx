@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { useNavigate } from 'react-router-dom';
+import '../style/login.css'; 
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -51,7 +52,7 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div className={`login-container`}>
             <h2>Registre-se</h2>
             {errorMessage && <p>{errorMessage}</p>}
             <form>
