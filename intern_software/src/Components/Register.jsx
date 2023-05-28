@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { useNavigate } from 'react-router-dom';
 import '../style/login.css';
 import { FaMoon } from 'react-icons/fa'; 
+import { DarkModeContext } from './DarkModeContext';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [darkMode, setDarkMode] = useState(true);
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
@@ -53,9 +54,6 @@ const Register = () => {
         return passwordRegex.test(password);
     };
 
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-      };
 
     return (
         <div className={`login-container ${darkMode ? 'dark-mode' : ''}`}>
