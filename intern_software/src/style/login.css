@@ -97,6 +97,6 @@ button:hover {
 .error-message {
   color: red;
   font-size: 14px;
-  margin-top: 5px;
+  margin: 7px;
   font-weight: bold;
 }

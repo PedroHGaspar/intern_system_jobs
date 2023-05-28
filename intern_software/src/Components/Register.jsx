@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { useNavigate } from 'react-router-dom';
-import '../style/login.css'; 
+import '../style/login.css';
+import { FaMoon } from 'react-icons/fa'; 
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [darkMode, setDarkMode] = useState(true);
     const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
@@ -51,10 +53,13 @@ const Register = () => {
         return passwordRegex.test(password);
     };
 
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+      };
+
     return (
-        <div className={`login-container`}>
+        <div className={`login-container ${darkMode ? 'dark-mode' : ''}`}>
             <h2>Registre-se</h2>
-            {errorMessage && <p>{errorMessage}</p>}
             <form>
                 <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
                 <input
@@ -63,10 +68,14 @@ const Register = () => {
                     value={password}
                     onChange={handlePasswordChange}
                 />
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
                 <button type="button" onClick={handleRegister}>
                     Registrar
                 </button>
             </form>
+            <button className="dark-mode-button" onClick={toggleDarkMode}>
+                <FaMoon />
+            </button>
         </div>
     );
 };
