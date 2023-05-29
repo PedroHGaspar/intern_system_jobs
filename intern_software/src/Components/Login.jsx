@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
-import { IoMdMoon } from 'react-icons/io';
 import 'firebase/compat/auth';
-import { FaMoon } from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import '../style/login.css';
 import Logo from '../images/logo.png';
 import LogoWhite from '../images/logo-white.png';
@@ -20,7 +19,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const [isDarkTheme, setIsDarkTheme] = useState(DarkModeContext);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -53,13 +52,20 @@ const Login = () => {
     navigate('/register');
   };
 
-  
+
+  const toggleTheme = () => {
+    setIsDarkTheme((prevTheme) => !prevTheme);
+  };
+
+
 
   return (
-    <div className={`login-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-      <img src={darkMode ? LogoWhite : Logo} alt="Logo" className="logo" />
+    <div className={`login-container ${isDarkTheme ? 'dark-mode' : 'light-mode'}`}>
+      <div className='imgHeaderLogo'>
+        <img src={isDarkTheme ? LogoWhite : Logo} alt="Logo" className="logo" />
+      </div>
       <div>
-        <h2>Login</h2>
+        <h2 className='loginHeaderTitle'>Login</h2>
         <form>
           <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
           <input
@@ -77,9 +83,17 @@ const Login = () => {
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </form>
       </div>
-      <button className="dark-mode-button" onClick={toggleDarkMode}>
-        <FaMoon />
-      </button>
+      <div className='buttonLightMode'>
+        <button
+          className={`theme-button ${isDarkTheme ? 'theme-dark' : 'theme-light'}`}
+          onClick={toggleTheme}
+        >
+          <div className={`button-icon-container ${isDarkTheme ? 'slide-to-sun' : 'slide-to-moon'}`}>
+            <FaMoon className="moon-icon" />
+            <FaSun className="sun-icon" />
+          </div>
+        </button>
+      </div>
     </div>
   );
 };

@@ -17,7 +17,8 @@
   justify-content: center;
   height: 100vh;
   position: relative;
-} 
+}
+
 .logo {
   width: 370px;
 }
@@ -34,6 +35,7 @@
   font-size: 24px;
   cursor: pointer;
 }
+
 .dark-mode-button:hover {
   color: #fff;
 }
@@ -99,4 +101,69 @@ button:hover {
   font-size: 14px;
   margin: 7px;
   font-weight: bold;
+}
+
+.loginHeaderTitle {
+  text-align: center;
+}
+
+.theme-button {
+  position: relative;
+  border: none;
+  width: 4rem;
+  height: 2rem;
+  margin-top: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.theme-button:focus {
+  outline: none;
+}
+
+.theme-button .button-icon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-to-sun {
+  transform: translate(-150%, -50%);
+}
+
+.slide-to-moon {
+  transform: translate(50%, -50%);
+}
+
+.moon-icon,
+.sun-icon {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.theme-dark .sun-icon {
+  opacity: 0;
+}
+
+.theme-light .moon-icon {
+  opacity: 0;
+}
+
+.buttonLightMode {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.imgHeaderLogo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 27%;
 }
