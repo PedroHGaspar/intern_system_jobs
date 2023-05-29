@@ -19,7 +19,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isDarkTheme, setIsDarkTheme] = useState(DarkModeContext);
+  const { isDarkTheme, setIsDarkTheme, toggleDarkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -53,9 +53,7 @@ const Login = () => {
   };
 
 
-  const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
-  };
+
 
 
 
@@ -86,7 +84,7 @@ const Login = () => {
       <div className='buttonLightMode'>
         <button
           className={`theme-button ${isDarkTheme ? 'theme-dark' : 'theme-light'}`}
-          onClick={toggleTheme}
+          onClick={toggleDarkMode}
         >
           <div className={`button-icon-container ${isDarkTheme ? 'slide-to-sun' : 'slide-to-moon'}`}>
             <FaMoon className="moon-icon" />
