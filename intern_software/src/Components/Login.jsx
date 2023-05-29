@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import { IoMdMoon } from 'react-icons/io';
@@ -7,6 +7,8 @@ import { FaMoon } from 'react-icons/fa';
 import '../style/login.css';
 import Logo from '../images/logo.png';
 import LogoWhite from '../images/logo-white.png';
+import { DarkModeContext } from './DarkModeContext';
+
 
 const firebaseConfig = {
   // Configurações do Firebase
@@ -18,7 +20,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -51,12 +53,10 @@ const Login = () => {
     navigate('/register');
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  
 
   return (
-    <div className={`login-container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className={`login-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <img src={darkMode ? LogoWhite : Logo} alt="Logo" className="logo" />
       <div>
         <h2>Login</h2>
